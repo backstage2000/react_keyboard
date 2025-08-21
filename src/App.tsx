@@ -10,24 +10,24 @@ export class App extends React.Component {
   };
 
   handleDocumentKeyBoard = (event: KeyboardEvent) => {
-    this.setState({ litters: event.key });
+    this.setState({ pressedKey: event.key });
   };
 
   componentDidMount(): void {
-    window.addEventListener('keyup', this.handleDocumentKeyBoard);
+    document.addEventListener('keyup', this.handleDocumentKeyBoard);
   }
 
   componentWillUnmount(): void {
-    window.removeEventListener('keyup', this.handleDocumentKeyBoard);
+    document.removeEventListener('keyup', this.handleDocumentKeyBoard);
   }
 
   render(): React.ReactNode {
-    const { litters } = this.state;
+    const { pressedKey } = this.state;
 
     return (
       <div>
-        {litters ? (
-          <p className="App__message">The last pressed key is [{litters}]</p>
+        {pressedKey ? (
+          <p className="App__message">The last pressed key is [{pressedKey}]</p>
         ) : (
           <p className="App__message">Nothing was pressed yet</p>
         )}
