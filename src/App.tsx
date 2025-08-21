@@ -1,12 +1,12 @@
 import React from 'react';
 
 type State = {
-  litters: string;
+  pressedKey: string;
 };
 
-class KeyBord extends React.Component {
+export class App extends React.Component {
   state: Readonly<State> = {
-    litters: '',
+    pressedKey: '',
   };
 
   handleDocumentKeyBoard = (event: KeyboardEvent) => {
@@ -35,9 +35,3 @@ class KeyBord extends React.Component {
     );
   }
 }
-
-export const App: React.FC = () => (
-  <div className="App">
-    <KeyBord />
-  </div>
-);
